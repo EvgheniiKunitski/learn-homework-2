@@ -10,13 +10,24 @@
 4. Замените точки в тексте на восклицательные знаки
 5. Сохраните результат в файл referat2.txt
 """
+import sys
+
 
 def main():
-    """
-    Эта функция вызывается автоматически при запуске скрипта в консоли
-    В ней надо заменить pass на ваш код
-    """
-    pass
+    one_string = ''
+    with open('referat2.txt', 'w', encoding='utf-8') as result_file:
+        with open('referat.txt', 'r', encoding='utf-8') as initial_file:
+            for line in initial_file:
+                one_string = one_string + line
+                result_file.write(line.replace('.','!'))
+    
+    str_length = len(one_string)
+    print(str_length)
+    no_sintax_string = one_string.replace('.',' ').replace(',',' ').replace('/n',' ').replace('!',' ').replace('?',' ').replace(';',' ').replace(':',' ')
+    count_words = len(no_sintax_string.split())
+    print(count_words)
+
+
 
 if __name__ == "__main__":
     main()
